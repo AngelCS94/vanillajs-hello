@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello Rigo with Vanilla.js</title>
+    <title>Generador de excusas</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -12,18 +10,36 @@
     />
     <link rel="shortcut icon" href="./4geeks.ico" />
   </head>
-  <body>
+  <body onload="fabricaexcusas()">
     <div class="container-fluid text-center">
-      <h1 class="mt-5">Hello Rigo!</h1>
-      <img src="./rigo-baby.jpg" />
-      <p class="alert alert-warning mt-4">
-        If this text is <b>not</b> centered and <b>yellow</b>, you probably have
-        an error
-      </p>
-      <div class="fixed-bottom p-4">
-        Made with ❤️ by
-        <a href="https://www.4geeksacademy.com">4Geeks Academy</a>
-      </div>
+      <h1 class="mt-5">Mi generador de excusas 1.0</h1>
+
+      <p id="excusa">el perro se come los apuntes</p>
+      <script>
+        function fabricaexcusas() {
+          let who = ["The dog", "My grandma", "The mailman", "My bird"];
+          let action = ["ate", "peed", "crushed", "broke"];
+          let what = ["my homework", "my phone", "the car", "my head"];
+          let when = [
+            "before the class",
+            "when I was sleeping",
+            "while I was exercising",
+            "during my lunch"
+          ];
+          let myArray = [
+            who[getRandomInt()],
+            action[getRandomInt()],
+            what[getRandomInt()],
+            when[getRandomInt()]
+          ];
+          function getRandomInt() {
+            let randomNumber = Math.floor(Math.random() * 3);
+            return randomNumber;
+          }
+          return myArray;
+        }
+        document.getElementById("excusa").innerHTML = fabricaexcusas();
+      </script>
     </div>
   </body>
 </html>
